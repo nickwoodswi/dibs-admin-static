@@ -5,28 +5,135 @@ import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import DateSelector from './DateSelector'
 
-class App extends Component {
+class StaticApp extends Component {
 
   constructor() {
     super() 
-    this.state = {}
+    this.state = {data: [
+        {
+            id: "1",
+            date_of_req: "Tue Apr 14 2020 11:03:55 GMT-0500 (Central Daylight Time)",
+            hold_type: "multiple",
+            hold_date:  "Tue Jan 14 2020 00:00:00 GMT-0600 (Central Standard Time)",
+            holds: [],
+            holds_added: [],
+            contact_type: "agent",
+            event_type: "band",
+            support_need: "no",
+            dsupport_type: "band",
+            support_type3: "solo",
+            support_type4: "dj",
+            hold_firstname: "Nicholas",
+            hold_lastname: "Woods",
+            hold_email: "richkiddigital@gmail.com",
+            contact_act: "Direct Hit",
+            spotify: "6969696",
+            youtube: "YouTube",
+            facebook: "Facebook",
+            bandcamp: "Bandcamp",
+            website: "Website",
+            dsupport_title: "Test Band 2",
+            spotify2: "46372920",
+            youtube2: "2Tube",
+            facebook2: "2Book",
+            bandcamp2: "2Camp",
+            website2: "2Site",
+            opener_title: "Opener2",
+            spotify3: "564739201-",
+            youtube3: "3Tube",
+            facebook3: "3Book",
+            bandcamp3: "3Camp",
+            website3: "3Site",
+            opener2_title: "Another Artist",
+            spotify4: "564739201",
+            youtube4: "4Tube",
+            facebook4: "4Book",
+            bandcamp4: "4Camp",
+            website4: "4Site",
+            contact_org: "The AGency",
+            contact_phone: "2623531696",
+            org_street1: "7944 N Green Bay Rd",
+            org_street2: "Apt 7",
+            org_city: "River Hills",
+            org_country: "United States",
+            org_zip: "53217",
+            event_detail: "This is a test of my state",
+            hold_status: "held",
+            hold_number: "2"
+        },
+        {
+            id: "2",
+            date_of_req: "Tue Apr 14 2020 11:03:55 GMT-0500 (Central Daylight Time)",
+            hold_type: "multiple",
+            hold_date: "Fri Feb 14 2020 00:00:00 GMT-0600 (Central Standard Time)",
+            holds: [],
+            holds_added: [],
+            contact_type: "agent",
+            event_type: "band",
+            support_need: "no",
+            dsupport_type: "band",
+            support_type3: "solo",
+            support_type4: "dj",
+            hold_firstname: "Nicholas",
+            hold_lastname: "Woods",
+            hold_email: "richkiddigital@gmail.com",
+            contact_act: "Direct Hit",
+            spotify: "6969696",
+            youtube: "YouTube",
+            facebook: "Facebook",
+            bandcamp: "Bandcamp",
+            website: "Website",
+            dsupport_title: "Test Band 2",
+            spotify2: "46372920",
+            youtube2: "2Tube",
+            facebook2: "2Book",
+            bandcamp2: "2Camp",
+            website2: "2Site",
+            opener_title: "Opener2",
+            spotify3: "564739201-",
+            youtube3: "3Tube",
+            facebook3: "3Book",
+            bandcamp3: "3Camp",
+            website3: "3Site",
+            opener2_title: "Another Artist",
+            spotify4: "564739201",
+            youtube4: "4Tube",
+            facebook4: "4Book",
+            bandcamp4: "4Camp",
+            website4: "4Site",
+            contact_org: "The AGency",
+            contact_phone: "2623531696",
+            org_street1: "7944 N Green Bay Rd",
+            org_street2: "Apt 7",
+            org_city: "River Hills",
+            org_country: "United States",
+            org_zip: "53217",
+            event_detail: "This is a test of my state",
+            hold_status: "held",
+            hold_number: "1"
+        }], 
+        selected_month: 'January', 
+        monthIndex: 0, 
+        selected_day: 1, 
+        selected_year: 2020
+    }
   }
 
-  componentDidMount() {
-    fetch('http://localhost:9090/holds', {
-        method: 'GET',
-        body: JSON.stringify(),
-        headers: {
-          "Content-Type": "application/json",
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-      this.setState({data, selected_month: 'January', monthIndex: 0, selected_day: 1, selected_year: 2020})
-      console.log(data)
-    }
-      )
-  }
+//   componentDidMount() {
+//     fetch('http://localhost:9090/holds', {
+//         method: 'GET',
+//         body: JSON.stringify(),
+//         headers: {
+//           "Content-Type": "application/json",
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//       this.setState({data, selected_month: 'January', monthIndex: 0, selected_day: 1, selected_year: 2020})
+//       console.log(data)
+//     }
+//       )
+//   }
 
   handleState = (propName, value) => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -97,23 +204,24 @@ class App extends Component {
           hold_number: hold.hold_number
         }
 
-        fetch(`http://localhost:9090/holds/${id}`, {
-          method: 'PATCH',
-          body: JSON.stringify(updatedHold),
-          headers: {
-            "Content-Type": "application/json",
-          }
-        })
-          .then(response => response.json())
-          .then(
-            console.log(`Hold updated successfully`)
-          )
+        // fetch(`http://localhost:9090/holds/${id}`, {
+        //   method: 'PATCH',
+        //   body: JSON.stringify(updatedHold),
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   }
+        // })
+        //   .then(response => response.json())
+        //   .then(
+        //     console.log(`Hold updated successfully`)
+        //   )
       
         updatedHolds.push(updatedHold)
 
       } else {updatedHolds.push(hold)}
 
     })
+    console.log(updatedHolds)
     this.setState({data: updatedHolds})
   }
 
@@ -233,6 +341,7 @@ class App extends Component {
 
         <Route path='/viewbydate'>
           {this.state.data.map((hold, idx) => {
+            console.log(hold.hold_date)
             if (hold.hold_date == new Date(this.state.selected_year, this.state.monthIndex, this.state.selected_day)) {
               return(
                 <HoldDetail
@@ -248,7 +357,7 @@ class App extends Component {
       </main>
       </>
     )
-  }}
-}
+  }
+}}
 
-export default App
+export default StaticApp

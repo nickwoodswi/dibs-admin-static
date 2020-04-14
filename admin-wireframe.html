@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIBS / Get Instant Calendar Holds</title>
+    <link rel="stylesheet" type="text/css" href="wireframe.css">
+</head>
+<body>
+
+<header>
+    <h1>DIBS</h1>
+</header>
+
+<nav>
+    <h2>HELD</h2>
+    <h2>CHALLENGED</h2>
+    <h2>OFFERED</h2>
+    <h2>CONFIRMED</h2>
+    <h2>RELEASED</h2>
+    <div class="view-by-date-selector">
+        <select>
+            <option>MONTH</option>
+        </select>
+        <select>
+            <option>DAY</option>
+        </select>
+        <select>
+            <option>YEAR</option>
+        </select>
+        <button>VIEW</button>
+    </div>
+</nav>
+
+<main>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div id="challenged" class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div id="challenged" class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div id="challenged" class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div id="challenged" class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+    <div class="hold-detail">
+        <div class="hold-detail-header">
+            <div class="hold-date">January 1, 2020</div>
+            <div class="event-title-contact">
+                <div class="event-title-status">
+                    <div class="title-support">
+                        <div class="event-title">Headlining Band</div>
+                        <div class="event-support">Direct Support Act / Opener / Second Opener</div>
+                    </div>
+                    <div class="order-status">
+                        <div class="hold-order">1H</div>
+                        <div id="challenged" class="hold-status">held</div>
+                    </div>
+                </div>
+                <div class="event-contact">
+                    <div class="name-category-organization">
+                        <div class="contact-name">Nick Woods</div>
+                        <div class="contact-category">agent</div>
+                        <div class="organization">Paquin Artists Agency</div>
+                    </div>
+                    <div class="email-phone-address-org">
+                        <div class="email">nick.woods.wi@gmail.com</div>
+                        <div class="phone">2623531696</div>
+                        <div class="address">
+                            <div class="address-1">420 Fake St</div>
+                            <div class="address-2">Apt 41A</div>
+                            <div class="city-zip">Milwaukee 53217</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hold-notes-container">
+            <div class="hold-notes">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+        </div>
+        <div class="status-button-container">
+            <button id="held" class="status-button">HOLD</button>
+            <button id="challenged" class="status-button">CHALLENGE</button>
+            <button id="offered" class="status-button">OFFER</button>
+            <button id="confirmed" class="status-button">CONFIRM</button>
+            <button id="released" class="status-button">RELEASE</button>
+        </div>
+        <div class="music-icons-container">
+            <a href="spotify.com"><div id="spotify" class="music-logo"></div></a>
+            <a href="youtube.com"><div id="youtube" class="music-logo"></div></a>
+            <a href="facebook.com"><div id="facebook" class="music-logo"></div></a>
+            <a href="bandcamp.com"><div id="bandcamp" class="music-logo"></div></a>
+            <a href="website.com"><div id="website" class="music-logo">SITE</div></a>
+        </div>
+    </div>
+
+</main>
+    
+</body>
+</html>
