@@ -186,6 +186,9 @@
             border: none;
             font-family: 'Helvetica', sans-serif
         }
+            .status-button:active{
+                background-color: grey
+            }
     .hold-notes-container{
         height: 100px;
         padding: 5px;

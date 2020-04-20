@@ -22,7 +22,7 @@ html {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             margin-left: 5px;
             margin-right: 5px;
         }
@@ -44,33 +44,51 @@ html {
                     background-color: white;
                     border-bottom: 1px solid red;
                 }
-        .view-by-date{
+                .active div{
+                    width: 120px;
+                    display: inline-block;
+                    text-align: center;
+                    margin: 5px;
+                    padding: 15px;
+                    font-style: italic;
+                    color: white;
+                    background-color: rgba(255, 0, 0, 0.9)
+                }
+        .view-by-date-container{
+            display: flex;
+            justify-content: center;
             width: 100%;
-            border: 1px red dotted;
-            background-color: rgb(0, 0, 0, .9);
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            color: white;
         }
-            .view-by-date-header{
-                font-style: italic;
-            }
-            .view-by-date-button{
+            .view-by-date{
+                width: 100%;
+                max-width: 580px;
+                border: 1px red dotted;
+                background-color: rgb(0, 0, 0, .9);
+                border-radius: 5px;
+                padding: 10px;
                 margin: 5px;
-                font-style: italic;
-                background-color: white;
-                border: none;
-                color: black;
-                width: 100px;
-                height: 25px;
+                color: white;
+                text-align: center;
             }
-            select{
-                background-color: white;
-                color: black;
-                height: 24px;
-                border: none;
-            }
+                .view-by-date-header{
+                    font-style: italic;
+                }
+                .view-by-date-button{
+                    margin: 5px;
+                    font-style: italic;
+                    background-color: white;
+                    border: none;
+                    color: black;
+                    width: 100px;
+                    height: 25px;
+                }
+                select{
+                    background-color: white;
+                    color: black;
+                    height: 24px;
+                    border: none;
+                    margin-left: 5px;
+                }
    
     main{
         display: flex;

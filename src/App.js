@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import HoldDetail from './HoldDetail'
 import './main.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import DateSelector from './DateSelector'
+const API_URL="https://dibs-hold-manager-backend.herokuapp.com"
+//const API_URL="http://localhost:9090"
 
 class App extends Component {
 
@@ -13,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:9090/holds', {
+    fetch(`${API_URL}/holds`, {
         method: 'GET',
         body: JSON.stringify(),
         headers: {
@@ -97,7 +99,7 @@ class App extends Component {
           hold_number: hold.hold_number
         }
 
-        fetch(`http://localhost:9090/holds/${id}`, {
+        fetch(`${API_URL}/holds/${id}`, {
           method: 'PATCH',
           body: JSON.stringify(updatedHold),
           headers: {
@@ -143,21 +145,24 @@ class App extends Component {
       <nav>
 
         <div className="filter-buttons">
-          <Link to='/'><div id="holds-button" className="nav-button">HOLDS</div></Link>
-          <Link to='/challenged'><div id="challenges-button" className="nav-button">CHALLENGES</div></Link>
-          <Link to='/offered'><div id="offers-button" className="nav-button">OFFERS</div></Link>
-          <Link to='/confirmed'><div id="confirmed-button" className="nav-button">CONFIRMED</div></Link>
-          <Link to='/released'><div id="released-button" className="nav-button">RELEASED</div></Link>
-          <div id="empty-button" className="nav-button">EMPTY</div>
+          <NavLink to='/' exact><div id="holds-button" className="nav-button">HOLDS</div></NavLink>
+          <NavLink to='/challenged'><div id="challenges-button" className="nav-button">CHALLENGES</div></NavLink>
+          <NavLink to='/offered'><div id="offers-button" className="nav-button">OFFERS</div></NavLink>
+          <NavLink to='/confirmed'><div id="confirmed-button" className="nav-button">CONFIRMED</div></NavLink>
+          <NavLink to='/released'><div id="released-button" className="nav-button">RELEASED</div></NavLink>
+          <NavLink to='/new'><div id="new-button" className="nav-button">NEW</div></NavLink>
         </div>
-    
-        <div className="view-by-date">
-          <div className="view-by-date-header">VIEW HOLDS BY DATE:</div>
-          <DateSelector 
-            appState={this.state} 
-            handleState={this.handleState} />
-          <Link to='/viewbydate'><button className="view-by-date-button" onClick={(e) => this.viewByDate()}>VIEW</button></Link>
+
+        <div className="view-by-date-container">
+          <div className="view-by-date">
+            VIEW HOLDS BY DATE:
+            <DateSelector 
+              appState={this.state} 
+              handleState={this.handleState} />
+            <NavLink to='/viewbydate'><button className="view-by-date-button" onClick={(e) => this.viewByDate()}>VIEW</button></NavLink>
+          </div>
         </div>
+
       </nav>
 
       <main className='App'>
@@ -228,7 +233,20 @@ class App extends Component {
               changeStatus={this.changeStatus} />
           )
         })}
+        </Route>
 
+        <Route path='/new'>
+          {this.state.data.map((hold, idx) => {
+            if (hold.hold_status == 'new') {
+              return(
+                <HoldDetail
+                  key={idx}
+                  id={hold.id}
+                  holdState={hold}
+                  changeStatus={this.changeStatus} />
+              )
+            }
+          })}
         </Route>
 
         <Route path='/viewbydate'>
