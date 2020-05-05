@@ -5,9 +5,9 @@ DIBS is a full stack calendar holds manager for small- and medium-sized venue ow
 
 The system includes two simple applications: 
 
-1) A form for booking agents, artists, promoters and private parties to place holds, that informs them of their place in line for a requested date 
+1) A [form](https://github.com/nickwoodswi/dibs) for booking agents, artists, promoters and private parties to place holds, that informs them of their place in line for a requested date 
 
-2) A [back office](https://github.com/nickwoodswi/dibs-admin-static) application for venue owners with functions to change a hold's status, and generate pre-populated emails to the contact listed on the date
+2) A back office application for venue owners with functions to change a hold's status, and generate pre-populated emails to the contact listed on the date
 
 The form GETs and POSTs, while the back office PATCHes from/to a shared database hosted by Heroku using the same [server](https://github.com/nickwoodswi/dibs-server).
 
