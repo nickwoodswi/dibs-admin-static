@@ -4,8 +4,8 @@ import './main.css'
 import { NavLink } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import DateSelector from './DateSelector'
-const API_URL="https://dibs-hold-manager-backend.herokuapp.com"
-//const API_URL="http://localhost:9090"
+import config from './config'
+const API_URL=config.API_URL
 
 class App extends Component {
 
@@ -25,7 +25,6 @@ class App extends Component {
     .then(response => response.json())
     .then(data => {
       this.setState({data, selected_month: 'January', monthIndex: 0, selected_day: 1, selected_year: 2020})
-      console.log(data)
     }
       )
   }
@@ -134,39 +133,41 @@ class App extends Component {
   
   render() {
     if (!this.state.data) {
-      return(<h1>Loading holds!</h1>)
+      return(<div className="loading"><h1>Loading holds...</h1></div>)
     } else {
     return (
       <>
-      <header>
-        <h1>DIBS</h1>
-      </header>
-
-      <nav>
-
-        <div className="filter-buttons">
-          <NavLink to='/' exact><div id="holds-button" className="nav-button">HOLDS</div></NavLink>
-          <NavLink to='/challenged'><div id="challenges-button" className="nav-button">CHALLENGES</div></NavLink>
-          <NavLink to='/offered'><div id="offers-button" className="nav-button">OFFERS</div></NavLink>
-          <NavLink to='/confirmed'><div id="confirmed-button" className="nav-button">CONFIRMED</div></NavLink>
-          <NavLink to='/released'><div id="released-button" className="nav-button">RELEASED</div></NavLink>
-          <NavLink to='/new'><div id="new-button" className="nav-button">NEW</div></NavLink>
-        </div>
-
-        <div className="view-by-date-container">
-          <div className="view-by-date">
-            VIEW HOLDS BY DATE:
-            <DateSelector 
-              appState={this.state} 
-              handleState={this.handleState} />
-            <NavLink to='/viewbydate'><button className="view-by-date-button" onClick={(e) => this.viewByDate()}>VIEW</button></NavLink>
+      <div id="top" className="top">
+        <div className="header-container">
+          <header>
+            <h1>DIBS</h1>
+          </header>
+          <div className="view-by-date-container">
+            <div className="view-by-date">
+              VIEW HOLDS BY DATE:<br/>
+              <DateSelector 
+                appState={this.state} 
+                handleState={this.handleState} />
+              <NavLink to='/viewbydate'><button className="view-by-date-button" onClick={(e) => this.viewByDate()}>VIEW</button></NavLink>
+            </div>
           </div>
         </div>
 
-      </nav>
+        <nav>
+            <div className="nav-container">
+              <div className="view-holds-by-status">VIEW HOLDS BY STATUS:</div>
+              <NavLink to='/' exact><div id="holds-button" className="nav-button">ALL HOLDS</div></NavLink>
+              <NavLink to='/challenged'><div id="challenges-button" className="nav-button">CHALLENGES</div></NavLink>
+              <NavLink to='/offered'><div id="offers-button" className="nav-button">OFFERS</div></NavLink>
+              <NavLink to='/confirmed'><div id="confirmed-button" className="nav-button">CONFIRMED</div></NavLink>
+              <NavLink to='/released'><div id="released-button" className="nav-button">RELEASED</div></NavLink>
+              <NavLink to='/new'><div id="new-button" className="nav-button">NEW HOLDS</div></NavLink>
+            </div>
+        </nav>
+
+      </div>
 
       <main className='App'>
-
         <Route path='/challenged'>
           {this.state.data.map((hold, idx) => {
             if (hold.hold_status == 'challenged') {
@@ -251,7 +252,8 @@ class App extends Component {
 
         <Route path='/viewbydate'>
           {this.state.data.map((hold, idx) => {
-            if (hold.hold_date == new Date(this.state.selected_year, this.state.monthIndex, this.state.selected_day)) {
+            const date = new Date(this.state.selected_year, this.state.monthIndex, this.state.selected_day)
+            if (hold.hold_date.substr(0,10) == date.toString().substr(0,10)) {
               return(
                 <HoldDetail
                   key={idx}
@@ -264,6 +266,7 @@ class App extends Component {
         </Route>
 
       </main>
+      <a href="#top"><div className="scroll">^</div></a>
       </>
     )
   }}

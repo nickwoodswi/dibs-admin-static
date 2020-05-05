@@ -1,21 +1,49 @@
 import React, { Component } from 'react'
 import './HoldDetail.css'
+import HoldNotes from './HoldNotes'
+import DSupport from './DSupport'
+import Opener1 from './Opener1'
+import Opener2 from './Opener2'
 
 class HoldDetail extends Component {
     static defaultProps = {
         holdState: {}
     }
     render() {
+        const date = new Date(this.props.holdState.hold_date)
+        const day = date.getDay()
+        const dateString = date.toLocaleString()
+        const splitDate = dateString.split(',')
+        const finalDate = splitDate[0]
+        const days = [
+            '[Sunday]',
+            '[Monday]',
+            '[Tuesday]',
+            '[Wednesday]',
+            '[Thursday]',
+            '[Friday]',
+            '[Saturday]'
+        ]
         return(
             <div className="hold-detail">
 
                 <div className="hold-detail-header">
-                    <div className="hold-date">{this.props.holdState.hold_date}</div>
+                    <div className="hold-date">
+                        <div className="date">{finalDate}</div> 
+                        <div className="day">{days[day]}</div>
+                    </div>
                     <div className="event-title-contact">
                         <div className="event-title-status">
                             <div className="title-support">
                                 <div className="event-title">{this.props.holdState.contact_act}</div>
-                                <div className="event-support">{this.props.holdState.dsupport_title} / {this.props.holdState.opener_title} / {this.props.holdState.opener2_title}</div>
+                                <div className="event-support">
+                                    <DSupport support={this.props.holdState.dsupport_title} />
+                                    {this.props.holdState.dsupport_title} 
+                                    <Opener1 support={this.props.holdState.opener_title} />
+                                    {this.props.holdState.opener_title} 
+                                    <Opener2 support={this.props.holdState.opener2_title} />
+                                    {this.props.holdState.opener2_title}
+                                </div>
                             </div>
                             <div className="order-status">
                                 <div className="hold-order">{this.props.holdState.hold_number}H</div>
@@ -25,8 +53,8 @@ class HoldDetail extends Component {
                         <div className="event-contact">
                             <div className="name-category-organization">
                                 <div className="contact-name">{this.props.holdState.hold_firstname} {this.props.holdState.hold_lastname}</div>
-                                <div className="contact-category">{this.props.holdState.contact_type}</div>
                                 <div className="organization">{this.props.holdState.contact_org}</div>
+                                <div className="contact-category">[{this.props.holdState.contact_type}]</div>
                             </div>
                             <div className="email-phone-address-org">
                                 <div className="email">{this.props.holdState.hold_email}</div>
@@ -40,13 +68,8 @@ class HoldDetail extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="hold-notes-container">
-                    <div className="hold-notes">
-                        {this.props.holdState.event_detail}
-                    </div>
-                </div>
+                <HoldNotes notes={this.props.holdState.event_detail} />
                 <div className="status-button-container">
-
                     <a href=
                         {'mailto:' 
                         + this.props.holdState.hold_email 
@@ -62,7 +85,7 @@ class HoldDetail extends Component {
                         + this.props.holdState.contact_act
                         + '%20has%20been%20confirmed.'}>
                         <button 
-                            id="held" 
+                            id="hold" 
                             className="status-button" 
                             onClick={() => this.props.changeStatus('held', this.props.id)}>HOLD
                         </button>
@@ -83,7 +106,7 @@ class HoldDetail extends Component {
                         + this.props.holdState.contact_act
                         + '%20has%20been%20challenged.'}>
                         <button 
-                            id="challenged" 
+                            id="challenge" 
                             className="status-button" 
                             onClick={() => this.props.changeStatus('challenged', this.props.id)}>CHALLENGE
                         </button>
@@ -104,7 +127,7 @@ class HoldDetail extends Component {
                         + this.props.holdState.hold_date
                         + '.%0D%0A%0D%0APlease%20reply%20within%2048%20hours%20to%20confirm,%20counter,%20or%20release.'}>
                         <button 
-                            id="offered" 
+                            id="offer" 
                             className="status-button" 
                             onClick={() => this.props.changeStatus('offered', this.props.id)}>OFFER
                         </button>
@@ -125,7 +148,7 @@ class HoldDetail extends Component {
                         + this.props.holdState.hold_date
                         + '.%20If%20you%20have%20any%20concerns%20or%20questions,%20please%20contact%20us%20immediately.'}>
                         <button 
-                            id="confirmed" 
+                            id="confirm" 
                             className="status-button" 
                             onClick={() => this.props.changeStatus('confirmed', this.props.id)}>CONFIRM
                         </button>
@@ -146,7 +169,7 @@ class HoldDetail extends Component {
                         + this.props.holdState.contact_act
                         + '%20has%20been%20released.'}>
                         <button 
-                            id="released" 
+                            id="release" 
                             className="status-button" 
                             onClick={() => this.props.changeStatus('released', this.props.id)}>RELEASE
                         </button>

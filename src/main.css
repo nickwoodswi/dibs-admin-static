@@ -1,67 +1,96 @@
-html { 
+html{
+    background-color: rgb(10, 10, 10);
+    scroll-behavior: smooth;
+}
+main{
+    margin-bottom: 45px;
+}
+a:hover{
+    color: darkgrey;
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 570px;
+    width: 100%;
+    color: red;
+    font-style: italic;
+}
+.scroll{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    color: black;
+}
+    .scroll:hover{
+        background-color: grey
+    }
+    .scroll:active{
+        background-color: black;
+        color: white;
+    }
+@media all and (max-width:600px) {
+    .top{
+        flex-wrap: wrap;
+    }
+    .header-container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    nav{
+        justify-content: center;
+        margin-left: auto;
+    }
+        .nav-container{
+            justify-content: center;
+        }
+        .view-holds-by-status{
+            text-align: center;
+            margin-top: 15px;
+        }
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     background: url(images/background.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
-    header{
-        width: 100%;
-        text-align: center;
-        color: rgba(255, 0, 0, 0.85);
-        font-size: 48px;
-        font-style: italic;
-        transform: scaleY(1.5);
-    }
-    nav{
+    padding-bottom: 25px;
+    box-shadow: 1px 1px 2px rgb(46, 46, 46);
+}
+    .header-container{
         display: flex;
-        flex-wrap: wrap;
-        width: 100%;
+        flex-direction: column;
+        width: 300px;
     }
-        .filter-buttons{
+        header{
             width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-left: 5px;
-            margin-right: 5px;
+            text-align: center;
+            color: red;
+            font-size: 60px;
+            font-style: italic;
+            transform: scaleY(1.5);
         }
-            .nav-button{
-                width: 120px;
-                display: inline-block;
-                text-align: center;
-                background-color: rgba(255, 255, 255, 0.9);
-                margin: 5px;
-                padding: 15px;
-                font-style: italic;
-                color: black;
+            header h1{
+                margin: 0;
             }
-                .nav-button-red{
-                    background-color: white;
-                    border-bottom: 1px solid red;
-                }
-                .nav-button:hover{
-                    background-color: white;
-                    border-bottom: 1px solid red;
-                }
-                .active div{
-                    width: 120px;
-                    display: inline-block;
-                    text-align: center;
-                    margin: 5px;
-                    padding: 15px;
-                    font-style: italic;
-                    color: white;
-                    background-color: rgba(255, 0, 0, 0.9)
-                }
         .view-by-date-container{
             display: flex;
             justify-content: center;
             width: 100%;
         }
             .view-by-date{
-                width: 100%;
-                max-width: 580px;
+                width: 300px;
                 border: 1px red dotted;
                 background-color: rgb(0, 0, 0, .9);
                 border-radius: 5px;
@@ -81,6 +110,7 @@ html {
                     color: black;
                     width: 100px;
                     height: 25px;
+                    cursor: pointer;
                 }
                 select{
                     background-color: white;
@@ -88,6 +118,47 @@ html {
                     height: 24px;
                     border: none;
                     margin-left: 5px;
+                }
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+        .nav-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .view-holds-by-status{
+            width: 100%;
+            padding: 5px;
+            margin-left: 5px;
+            color: white;
+            background-color: rgba(15, 15, 15, .9);
+        }
+        .filter-buttons{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+            .nav-button{
+                width: 90px;
+                display: inline-block;
+                text-align: center;
+                background-color: rgba(255, 255, 255);
+                margin: 5px;
+                padding: 15px;
+                font-style: italic;
+                color: black;
+            }
+                .nav-button-red{
+                    background-color: white;
+                    border-bottom: 1px solid red;
+                }
+                .active div{
+                    color: white;
+                    background-color: rgba(255, 0, 0)
                 }
    
     main{
